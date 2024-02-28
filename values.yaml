@@ -1,0 +1,9 @@
+cert_manager:
+  enabled: true
+  subscription:
+    channel: 
+    installPlanApproval: 
+    startingCSV: 
+    
+
+    

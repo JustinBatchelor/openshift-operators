@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dev-root-app
+  namespace: openshift-gitops
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/JustinBatchelor/multi-tenant-gitops-template
+    targetRevision: HEAD
+    path: charts/operators
+    helm:
+      parameters:
+        - name: acm.enabled
+          value: "true"
+        - name: acs.enabled
+          value: "true"
+        - name: quay.enabled
+          value: "true"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: openshift-gitops
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
