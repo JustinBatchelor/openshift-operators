@@ -6,16 +6,12 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/JustinBatchelor/multi-tenant-gitops-template
-    targetRevision: HEAD
-    path: charts/operators
+    repoURL: https://github.com/JustinBatchelor/openshift-operators
+    targetRevision: certmanager
+    path: ./
     helm:
       parameters:
-        - name: acm.enabled
-          value: "true"
-        - name: acs.enabled
-          value: "true"
-        - name: quay.enabled
+        - name: cert_manager.enabled
           value: "true"
   destination:
     server: https://kubernetes.default.svc
