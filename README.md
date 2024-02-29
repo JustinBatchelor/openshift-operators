@@ -44,7 +44,7 @@ example invocation from openshift cluster assuming you have installed the `Red H
 
 **note:**
 
-- This helm chart will deploy a clusterissuer when the variable certManager.enabled is set to true. The clusterissuer object expects a secret named `cloudflare-api-token` to exist with the key `api-token` in the `cert-manager` namespace
+- This helm chart will deploy a `clusterissuer` object when the variable `certManager.enabled` is set to `true`. The `clusterissuer` object expects a secret named `cloudflare-api-token` to exist with the key `api-token` in the `cert-manager` namespace
 
     ```    
     apiVersion: v1
@@ -53,7 +53,7 @@ example invocation from openshift cluster assuming you have installed the `Red H
         name: cloudflare-api-token
         namespace: cert-manager
     data:
-        api-token: <my base64 encoded api token>
+        api-token: <my base64 encoded cloudflare dns zone api token>
     ```
 
 - The cert manager default installations seem to hang when using cloudflare dns resolution if you do not patch the `CertManager` object. Usually the certificate object will throw an error message saying that `Issuing certificate as Secret does not exist`. To fix this run the following command 
