@@ -1,9 +1,11 @@
-cert_manager:
-  enabled: true
-  subscription:
-    channel: 
-    installPlanApproval: 
-    startingCSV: 
-    
+clusterName: example
+clusterDomain: example.com
+email: jondoe@example.com
 
-    
+certManager:
+  enabled: false
+  subscription:
+    channel: stable
+    installPlanApproval: Automatic
+    startingCSV: cert-manager.v1.14.2
+  ingressCertificate: false

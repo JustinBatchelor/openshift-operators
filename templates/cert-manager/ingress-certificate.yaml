@@ -1,0 +1,18 @@
+{{- if .Values.certManager.ingressCertificate -}}
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: ingress-certificate
+  namespace: openshift-ingress
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
+spec:
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
+  dnsNames:
+    - '*.apps.{{ .Values.clusterName }}.{{ .Values.clusterDomain }}'
+  secretName: ingress-certificate-secret
+---
+{{- end -}}
