@@ -21,15 +21,15 @@ example invocation from openshift cluster assuming you have installed the `Red H
         helm:
         parameters:
             - name: clusterName
-            value: "dev"
+              value: "dev"
             - name: clusterDomain
-            value: "batchelor.live"
+              value: "batchelor.live"
             - name: email
-            value: "justinrossbatchelor@gmail.com"
+              value: "justinrossbatchelor@gmail.com"
             - name: certManager.enabled
-            value: "true"
+              value: "true"
             - name: certManager.ingressCertificate
-            value: "true"        
+              value: "true"        
     destination:
         server: https://kubernetes.default.svc
         namespace: openshift-gitops
