@@ -8,7 +8,6 @@ metadata:
 spec:
   acme:
     email: {{ .Values.email | default "jondoe@example.com" }}
-    preferredChain: ""
     privateKeySecretRef:
       name: letsencrypt-issuer-account-key
     server: https://acme-v02.api.letsencrypt.org/directory
