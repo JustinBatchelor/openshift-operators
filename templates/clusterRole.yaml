@@ -5,9 +5,11 @@ metadata:
 rules:
 - apiGroups: 
   - "cert-manager.io"
+  - "project.openshift.io"
   resources:
   - "clusterissuers"
   - "certificates"
+  - "projects"
   verbs: 
   - "get" 
   - "list"
