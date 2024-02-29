@@ -4,14 +4,10 @@ metadata:
   name: argocd-role
 rules:
 - apiGroups: 
-{{- if .Values.certManager.enabled }}
   - "cert-manager.io"
-{{- end }}
   resources:
-{{- if .Values.certManager.enabled }}
   - "clusterissuers"
   - "certificates"
-{{- end }}
   verbs: 
   - "get" 
   - "list"
