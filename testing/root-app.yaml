@@ -18,7 +18,7 @@ spec:
         - name: email
           value: "justinrossbatchelor@gmail.com"
         - name: certManager.enabled
-          value: "false"
+          value: "true"
         - name: certManager.ingressCertificate
           value: "false"        
   destination:
