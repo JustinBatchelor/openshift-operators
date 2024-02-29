@@ -20,7 +20,7 @@ spec:
         - name: certManager.enabled
           value: "true"
         - name: certManager.ingressCertificate
-          value: "true"        
+          value: "false"        
   destination:
     server: https://kubernetes.default.svc
     namespace: openshift-gitops

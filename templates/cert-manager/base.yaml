@@ -6,6 +6,12 @@ metadata:
   name: cert-manager-operator
 spec: {}
 ---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cert-manager
+spec: {}
+---
 apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
 metadata:
