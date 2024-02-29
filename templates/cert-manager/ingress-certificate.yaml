@@ -12,7 +12,7 @@ spec:
     name: letsencrypt
     kind: ClusterIssuer
   dnsNames:
-    - '*.apps.{{ .Values.clusterName }}.{{ .Values.clusterDomain }}'
+    - '*.apps.{{ .Values.clusterName | default "dev" }}.{{ .Values.clusterDomain | default "example.com" }}'
   secretName: ingress-certificate-secret
 ---
 {{- end -}}

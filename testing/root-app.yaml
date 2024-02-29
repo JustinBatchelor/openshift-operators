@@ -11,7 +11,13 @@ spec:
     path: ./
     helm:
       parameters:
-        - name: cert_manager.enabled
+        - name: clusterName
+          value: dev
+        - name: clusterDomain
+          value: batchelor.live
+        - name: email
+          value: justinrossbatchelor@gmail.com
+        - name: certManager.enabled
           value: "true"
   destination:
     server: https://kubernetes.default.svc

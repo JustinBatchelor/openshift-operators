@@ -29,6 +29,6 @@ spec:
   name: cert-manager
   source: community-operators
   sourceNamespace: openshift-marketplace
-  startingCSV: {{ .Values.certManager.subscription.starting_csv | default "cert-manager.v1.14.2" }}
+  startingCSV: {{ index .Values.certManager.subscription.startingCSV 0 | default "cert-manager.v1.14.2" }}
 ---
 {{- end -}}
