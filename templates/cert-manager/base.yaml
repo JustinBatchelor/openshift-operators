@@ -35,6 +35,6 @@ spec:
   name: openshift-cert-manager-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace
-  startingCSV: {{ index .Values.certManager.subscription.startingCSV 0 | default "cert-manager.v1.13.0" }}
+  startingCSV: {{ index .Values.certManager.subscription.startingCSV 0 | default "cert-manager-operator.v1.13.0" }}
 ---
 {{- end -}}

@@ -9,5 +9,8 @@ certManager:
       - stable-v1
     installPlanApproval: Automatic
     startingCSV: 
-      - cert-manager.v1.13.0
+      - cert-manager-operator.v1.13.0
+      - cert-manager-operator.v1.12.1
+      - cert-manager-operator.v1.12.0
+      - cert-manager-operator.v1.11.4
   ingressCertificate: false

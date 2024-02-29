@@ -18,9 +18,9 @@ spec:
         - name: email
           value: "justinrossbatchelor@gmail.com"
         - name: certManager.enabled
-          value: "true"
+          value: "false"
         - name: certManager.ingressCertificate
-          value: "true"        
+          value: "false"        
   destination:
     server: https://kubernetes.default.svc
     namespace: openshift-gitops
