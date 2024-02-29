@@ -1,4 +1,4 @@
-{{- if .Values.certManager.ingressCertificate -}}
+{{- if .Values.certManager.ingressCertificate }}
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
@@ -22,4 +22,4 @@ spec:
           dnsZones:
             - {{ .Values.clusterDomain | default "example.com" }}
 ---
-{{- end -}}
+{{- end }}
