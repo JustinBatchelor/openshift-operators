@@ -16,7 +16,7 @@ example invocation from openshift cluster assuming you have installed the `Red H
     project: default
     source:
         repoURL: https://github.com/JustinBatchelor/openshift-operators
-        targetRevision: certmanager
+        targetRevision: HEAD
         path: ./
         helm:
         parameters:
