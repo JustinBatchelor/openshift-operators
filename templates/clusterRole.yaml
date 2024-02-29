@@ -12,7 +12,7 @@ rules:
   - "clusterissuers"
 {{- end }}
 {{- if .Values.certManager.ingressCertificate }}
-  - "certificate"
+  - "certificates"
 {{- end }}
   verbs: 
   - "get" 

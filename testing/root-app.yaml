@@ -12,13 +12,15 @@ spec:
     helm:
       parameters:
         - name: clusterName
-          value: dev
+          value: "dev"
         - name: clusterDomain
-          value: batchelor.live
+          value: "batchelor.live"
         - name: email
-          value: justinrossbatchelor@gmail.com
+          value: "justinrossbatchelor@gmail.com"
         - name: certManager.enabled
           value: "true"
+        - name: certManager.ingressCertificate
+          value: "true"        
   destination:
     server: https://kubernetes.default.svc
     namespace: openshift-gitops
