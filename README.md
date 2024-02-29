@@ -1,5 +1,5 @@
 # openshift-operators
-helm chart to deploy various Red Hat openshift-operators to a given OpenShift cluster
+helm chart to deploy various Red Hat openshift-operators to a given OpenShift cluster via GitOps and ArgoCD Applications
 
 ## Cert-Manager
 
