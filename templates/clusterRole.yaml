@@ -10,8 +10,6 @@ rules:
   resources:
 {{- if .Values.certManager.enabled }}
   - "clusterissuers"
-{{- end }}
-{{- if .Values.certManager.ingressCertificate }}
   - "certificates"
 {{- end }}
   verbs: 
