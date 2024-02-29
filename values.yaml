@@ -5,10 +5,9 @@ email: jondoe@example.com
 certManager:
   enabled: false
   subscription:
-    channel: stable
+    channel: 
+      - stable-v1
     installPlanApproval: Automatic
     startingCSV: 
-      - cert-manager.v1.14.2
-      - cert-manager.v1.14.1
-      - cert-manager.v1.13.1
+      - cert-manager.v1.13.0
   ingressCertificate: false

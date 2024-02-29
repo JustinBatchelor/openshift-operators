@@ -30,11 +30,11 @@ metadata:
   name: cert-manager
   namespace: openshift-operators
 spec:
-  channel: {{ .Values.certManager.subscription.channel | default "stable" }}
+  channel: {{ index .Values.certManager.subscription.channel 0 | default "stable-v1" }}
   installPlanApproval: {{ .Values.certManager.subscription.installPlanApproval | default "Automatic" }}
-  name: cert-manager
-  source: community-operators
+  name: openshift-cert-manager-operator
+  source: redhat-operators
   sourceNamespace: openshift-marketplace
-  startingCSV: {{ index .Values.certManager.subscription.startingCSV 0 | default "cert-manager.v1.14.2" }}
+  startingCSV: {{ index .Values.certManager.subscription.startingCSV 0 | default "cert-manager.v1.13.0" }}
 ---
 {{- end -}}
