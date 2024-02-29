@@ -40,7 +40,9 @@ example invocation from openshift cluster assuming you have installed the `Red H
         prune: true
         selfHeal: true
 
-    oc apply -f openshift-operators.yaml
+deploy this resource with the following command
+
+    $ oc apply -f openshift-operators.yaml
 
 **note:**
 
