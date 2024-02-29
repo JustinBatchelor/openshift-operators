@@ -1,9 +1,7 @@
 # openshift-operators
 helm chart to deploy various Red Hat openshift-operators to a given OpenShift cluster
 
-## Operators
-
-### Cert-Manager
+## Cert-Manager
 
 example invocation from openshift cluster assuming you have installed the `Red Hat OpenShift GitOps Operator` 
 
@@ -12,7 +10,7 @@ example invocation from openshift cluster assuming you have installed the `Red H
     apiVersion: argoproj.io/v1alpha1
     kind: Application
     metadata:
-    name: dev-root-app
+    name: dev-cert-manager-argo-app
     namespace: openshift-gitops
     spec:
     project: default
