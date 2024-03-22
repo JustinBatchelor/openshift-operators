@@ -6,13 +6,13 @@ metadata:
   name: ingress-certificate
   namespace: openshift-ingress
   annotations:
-    argocd.argoproj.io/sync-wave: "3"
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   issuerRef:
     name: letsencrypt
     kind: ClusterIssuer
   dnsNames:
-    - '*.apps.{{ .Values.clusterName | default "dev" }}.{{ .Values.clusterDomain | default "example.com" }}'
+    - '*.apps.{{ .Values.clusterName | default "ocp" }}.{{ .Values.clusterDomain | default "example.com" }}'
   secretName: ingress-certificate-secret
 ---
 {{- end -}}
