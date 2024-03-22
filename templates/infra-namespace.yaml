@@ -1,0 +1,9 @@
+{{- if or .Values.certManager.enabled .Values.vaultSecrets.enabled -}}
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: openshift-operators
+spec: {}
+---
+{{- end -}}
