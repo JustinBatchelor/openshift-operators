@@ -13,6 +13,7 @@ rules:
   - "projects"
   - "HCPAuth"
   - "HCPVaultSecretsApp"
+  - "secrets"
   verbs: 
   - "get" 
   - "list"
