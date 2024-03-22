@@ -15,8 +15,8 @@ spec:
       - dns01:
           cloudflare:
             apiTokenSecretRef:
-              key: api-token
-              name: cloudflare-api-token
+              key: cloudflare_api_token
+              name: hcp-homelab-secrets
         selector: 
           dnsZones:
             - {{ .Values.clusterDomain | default "example.com" }}
