@@ -24,4 +24,11 @@ vaultSecrets:
     installPlanApproval: Automatic
     startingCSV:
       - vault-secrets-operator.v0.5.2
+  organizationID: ''
+  projectID: ''
+  clientID: ''
+  clientSecret: ''
+  refreshAfter: ''
+  appName: ''
+
       

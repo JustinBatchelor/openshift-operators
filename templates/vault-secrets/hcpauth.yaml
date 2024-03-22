@@ -1,0 +1,33 @@
+{{- if .Values.vaultSecrets.enabled -}}
+---
+apiVersion: secrets.hashicorp.com/v1beta1
+kind: HCPAuth
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  name: hcp-authentication
+  namespace: openshift-operators
+spec:
+  method: servicePrincipal
+  servicePrincipal:
+    secretRef: hashicorp-service-principal
+  organizationID: {{ .Values.vaultSecrets.organizationID | default "" }}
+  projectID: {{ .Values.vaultSecrets.projectID | default "" }}
+---
+kind: HCPVaultSecretsApp
+apiVersion: secrets.hashicorp.com/v1beta1
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  namespace: openshift-operators
+  name: hcp-vaultsecrets
+spec:
+  appName: {{ .Values.vaultSecrets.appName | default "homelab" }}
+  destination:
+    create: true
+    name: hcp-homelab-secrets
+    overwrite: true
+  hcpAuthRef: hcp-authentication
+  refreshAfter: {{ .Values.vaultSecrets.refreshAfter | default "5m" }}
+---
+{{- end -}}

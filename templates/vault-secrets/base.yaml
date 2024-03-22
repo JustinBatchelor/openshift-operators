@@ -19,4 +19,10 @@ spec:
   sourceNamespace: openshift-marketplace
   startingCSV: {{ index .Values.vaultSecrets.subscription.startingCSV 0 | default "vault-secrets-operator.v0.5.2" }}
 ---
+kind: Secret
+apiVersion: v1
+data:
+  clientID: {{ .Values.vaultSecrets.clientID | default "" }}
+  clientSecret: {{ .Values.vaultSecrets.clientSecret | default "" }}
+---
 {{- end -}}
