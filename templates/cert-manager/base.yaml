@@ -1,15 +1,37 @@
 {{- if .Values.certManager.enabled -}}
 ---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cert-manager
+spec: {}
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cert-manager-operator
+spec: {}
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: openshift-cert-manager-operator
+  namespace: cert-manager-operator
+spec:
+  targetNamespaces:
+    - cert-manager-operator
+---
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
   name: cert-manager
   namespace: openshift-operators
 spec:
-  channel: {{ index .Values.certManager.subscription.channel 0 | default "stable" }}
+  channel: {{ index .Values.certManager.subscription.channel 0 | default "stable-v1" }}
   installPlanApproval: {{ .Values.certManager.subscription.installPlanApproval | default "Automatic" }}
-  name: cert-manager
-  source: community-operators
+  name: openshift-cert-manager-operator
+  source: redhat-operators
   sourceNamespace: openshift-marketplace
+  startingCSV: {{ index .Values.certManager.subscription.startingCSV 0 | default "cert-manager-operator.v1.13.0" }}
 ---
 {{- end -}}

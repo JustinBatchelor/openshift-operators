@@ -6,7 +6,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
   name: hcp-authentication
-  namespace: openshift-operators
+  namespace: cert-manager
 spec:
   method: servicePrincipal
   servicePrincipal:
@@ -19,7 +19,7 @@ apiVersion: secrets.hashicorp.com/v1beta1
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "2"
-  namespace: openshift-operators
+  namespace: cert-manager
   name: hcp-vaultsecrets
 spec:
   appName: {{ .Values.vaultSecrets.appName | default "homelab" }}

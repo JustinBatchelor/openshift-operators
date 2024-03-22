@@ -17,7 +17,7 @@ kind: Secret
 apiVersion: v1
 metadata:
   name: hashicorp-service-principal
-  namespace: openshift-operators
+  namespace: cert-manager
 data:
   clientID: {{ .Values.vaultSecrets.clientID | default "" }}
   clientSecret: {{ .Values.vaultSecrets.clientSecret | default "" }}

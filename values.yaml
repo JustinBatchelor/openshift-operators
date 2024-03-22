@@ -6,8 +6,10 @@ certManager:
   enabled: false
   subscription:
     channel: 
-      - stable
+      - stable-v1
     installPlanApproval: Automatic
+    startingCSV:
+      - cert-manager-operator.v1.13.0
   ingressCertificate: false
 
 
