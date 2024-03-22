@@ -13,7 +13,7 @@ rules:
   - "certificates"
   - "projects"
   - "hcpauths"
-  - "hcpvaultsecretsapp"
+  - "hcpvaultsecretsapps"
   - "secrets"
   verbs: 
   - "get" 
