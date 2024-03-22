@@ -7,6 +7,7 @@ rules:
   - "cert-manager.io"
   - "project.openshift.io"
   - "secrets.hashicorp.com"
+  - ""
   resources:
   - "clusterissuers"
   - "certificates"
