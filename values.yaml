@@ -14,3 +14,14 @@ certManager:
       - cert-manager-operator.v1.12.0
       - cert-manager-operator.v1.11.4
   ingressCertificate: false
+
+
+vaultSecrets:
+  enabled: false
+  subscription:
+    channel:
+      - stable
+    installPlanApproval: Automatic
+    startingCSV:
+      - vault-secrets-operator.v0.5.2
+      

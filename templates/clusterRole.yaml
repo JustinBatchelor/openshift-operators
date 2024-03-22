@@ -6,10 +6,13 @@ rules:
 - apiGroups: 
   - "cert-manager.io"
   - "project.openshift.io"
+  - "secrets.hashicorp.com"
   resources:
   - "clusterissuers"
   - "certificates"
   - "projects"
+  - "HCPAuth"
+  - "HCPVaultSecretsApp"
   verbs: 
   - "get" 
   - "list"
