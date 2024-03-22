@@ -12,8 +12,8 @@ rules:
   - "clusterissuers"
   - "certificates"
   - "projects"
-  - "HCPAuth"
-  - "HCPVaultSecretsApp"
+  - "hcpauths"
+  - "hcpvaultsecretsapp"
   - "secrets"
   verbs: 
   - "get" 
