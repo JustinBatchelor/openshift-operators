@@ -9,18 +9,19 @@ certManager:
       - stable-v1
     installPlanApproval: Automatic
     startingCSV:
-      - cert-manager-operator.v1.13.0
+      - cert-manager-operator.v1.13.1
   ingressCertificate: false
 
 
 vaultSecrets:
   enabled: false
+  instance: false
   subscription:
     channel:
       - stable
     installPlanApproval: Automatic
     startingCSV:
-      - vault-secrets-operator.v0.5.2
+      - vault-secrets-operator.v0.7.1
   organizationID: ''
   projectID: ''
   clientID: ''
