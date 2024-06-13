@@ -1,24 +1,24 @@
 {{- if .Values.certManager.enabled -}}
-# apiVersion: cert-manager.io/v1
-# kind: ClusterIssuer
-# metadata:
-#   name: letsencrypt
-#   annotations:
-#     argocd.argoproj.io/sync-wave: "3"
-# spec:
-#   acme:
-#     email: {{ .Values.email | default "jondoe@example.com" }}
-#     privateKeySecretRef:
-#       name: letsencrypt-issuer-account-key
-#     server: https://acme-v02.api.letsencrypt.org/directory
-#     solvers:
-#       - dns01:
-#           cloudflare:
-#             apiTokenSecretRef:
-#               key: cloudflare_api_token
-#               name: hcp-homelab-secrets
-#         selector: 
-#           dnsZones:
-#             - {{ .Values.clusterDomain | default "example.com" }}
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt
+  annotations:
+    argocd.argoproj.io/sync-wave: "10"
+spec:
+  acme:
+    email: {{ .Values.email | default "jondoe@example.com" }}
+    privateKeySecretRef:
+      name: letsencrypt-issuer-account-key
+    server: https://acme-v02.api.letsencrypt.org/directory
+    solvers:
+      - dns01:
+          cloudflare:
+            apiTokenSecretRef:
+              key: cloudflare_api_token
+              name: hcp-homelab-secrets
+        selector: 
+          dnsZones:
+            - {{ .Values.clusterDomain | default "example.com" }}
 ---
 {{- end -}}
