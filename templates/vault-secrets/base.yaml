@@ -1,19 +1,27 @@
 {{- if .Values.vaultSecrets.enabled -}}
 ---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: vault-secrets-operator
+spec: {}
+---
 apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
 metadata:
   name: vault-secrets-operator-group
-  namespace: openshift-operators
+  namespace: vault-secrets-operator
 spec:
   targetNamespaces:
-    - openshift-operators
+    - ''
 ---
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
   name: vault-secrets-operator
   namespace: openshift-operators
+  labels:
+    operators.coreos.com/vault-secrets-operator.openshift-operators: ''
 spec:
   channel: {{ index .Values.vaultSecrets.subscription.channel 0 | default "stable" }}
   installPlanApproval: {{ .Values.vaultSecrets.subscription.installPlanApproval | default "Automatic" }}
@@ -21,17 +29,6 @@ spec:
   source: certified-operators
   sourceNamespace: openshift-marketplace
   startingCSV: {{ index .Values.vaultSecrets.subscription.startingCSV 0 | default "vault-secrets-operator.v0.5.2" }}
----
-kind: Secret
-apiVersion: v1
-metadata:
-  name: hashicorp-service-principal
-  namespace: cert-manager
-  annotations:
-    argocd.argoproj.io/sync-wave: "4"
-data:
-  clientID: {{ .Values.vaultSecrets.clientID | default "" }}
-  clientSecret: {{ .Values.vaultSecrets.clientSecret | default "" }}
 ---
 kind: Secret
 apiVersion: v1
