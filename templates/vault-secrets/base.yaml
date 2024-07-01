@@ -26,4 +26,15 @@ data:
   clientID: {{ .Values.vaultSecrets.clientID | default "" }}
   clientSecret: {{ .Values.vaultSecrets.clientSecret | default "" }}
 ---
+kind: Secret
+apiVersion: v1
+metadata:
+  name: hashicorp-service-principal
+  namespace: cert-manager
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+data:
+  clientID: {{ .Values.vaultSecrets.clientID | default "" }}
+  clientSecret: {{ .Values.vaultSecrets.clientSecret | default "" }}
+---
 {{- end -}}
