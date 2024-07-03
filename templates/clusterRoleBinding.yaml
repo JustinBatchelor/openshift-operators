@@ -9,6 +9,9 @@ subjects:
 - kind: ServiceAccount
   name: openshift-gitops-argocd-application-controller
   namespace: cert-manager
+- kind: ServiceAccount
+  name: openshift-gitops-argocd-application-controller
+  namespace: openshift-storage
 roleRef:
   kind: ClusterRole
   name: argocd-role
