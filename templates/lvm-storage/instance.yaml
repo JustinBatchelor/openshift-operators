@@ -5,8 +5,6 @@ kind: LVMCluster
 metadata:
   name: lvmcluster
   namespace: openshift-storage
-  annotations:
-    storageclass.kubernetes.io/is-default-class": "true"
 spec:
   storage:
     deviceClasses:
