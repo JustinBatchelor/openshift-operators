@@ -8,6 +8,7 @@ rules:
   - "project.openshift.io"
   - "secrets.hashicorp.com"
   - "lvm.topolvm.io"
+  - ""
   resources:
   - "clusterissuers"
   - "certificates"
