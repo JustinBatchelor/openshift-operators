@@ -19,8 +19,24 @@ spec:
           value: "justinrossbatchelor@gmail.com"
         - name: certManager.enabled
           value: "true"
-        - name: certManager.ingressCertificate
-          value: "false"        
+        - name: certManager.ingressCertificate.enabled
+          value: "false"
+        - name: vaultSecrets.enabled
+          value: "true"
+        - name: vaultSecrets.organizationID
+          value: "xxxx"
+        - name: vaultSecrets.projectID
+          value: "xxx"
+        - name: vaultSecrets.servicePrincipal.clientID
+          value: "xxx"
+        - name: vaultSecrets.servicePrincipal.clientSecret
+          value: "xxx"
+        - name: vaultSecrets.servicePrincipal.name
+          value: "hcp-service-principal"
+        - name: vaultsecrets.app.name
+          value: "homelab"
+        - name: vaultsecrets.app.key
+          value: "cloudflare_api_token"
   destination:
     server: https://kubernetes.default.svc
     namespace: openshift-gitops
