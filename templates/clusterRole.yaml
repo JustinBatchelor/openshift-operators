@@ -7,7 +7,7 @@ rules:
   - "cert-manager.io"
   - "project.openshift.io"
   - "secrets.hashicorp.com"
-  - ""
+  - "lvm.topolvm.io "
   resources:
   - "clusterissuers"
   - "certificates"
@@ -15,6 +15,7 @@ rules:
   - "hcpauths"
   - "hcpvaultsecretsapps"
   - "secrets"
+  - "lvmclusters"
   verbs: 
   - "get" 
   - "list"
