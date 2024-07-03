@@ -16,8 +16,8 @@ spec:
       - dns01:
           cloudflare:
             apiTokenSecretRef:
-              key: {{ .Values.vaultSecrets.secretKey | default "example-api-key" }}
-              name: {{ .Values.vaultSecrets.secretName | default "example-secrete-name" }}
+              key: {{ .Values.vaultSecrets.app.key | default "example-api-key" }}
+              name: hcp-{{ .Values.vaultSecrets.app.name | default "homelab" }}-secrets
         selector: 
           dnsZones:
             - {{ .Values.clusterDomain | default "example.com" }}

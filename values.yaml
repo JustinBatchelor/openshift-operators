@@ -7,8 +7,6 @@ certManager:
   ingressCertificate:
     enabled: false
     secretName: ''
-  
-
 
 vaultSecrets:
   enabled: false
@@ -21,8 +19,7 @@ vaultSecrets:
   app:
     refreshAfter: ''
     name: ''
-    secretName: ''
-    secretKey: ''
+    key: ''
 
 lvmstorage:
   enabled: false

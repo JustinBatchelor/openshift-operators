@@ -1,0 +1,19 @@
+{{- if .Values.lvmstorage.enabled -}}
+---
+apiVersion: lvm.topolvm.io/v1alpha1
+kind: LVMCluster
+metadata:
+  name: lvmcluster
+  namespace: openshift-storage
+spec:
+  storage:
+    deviceClasses:
+      - fstype: xfs
+        thinPoolConfig:
+          chunkSizeCalculationPolicy: Static
+          sizePercent: 90
+          name: thin-pool-1
+          overprovisionRatio: 10
+        name: vg1
+---
+{{- end -}}
