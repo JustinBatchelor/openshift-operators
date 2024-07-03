@@ -10,7 +10,6 @@ spec:
     deviceClasses:
       - fstype: xfs
         thinPoolConfig:
-          chunkSizeCalculationPolicy: Static
           sizePercent: 90
           name: thin-pool-1
           overprovisionRatio: 10
