@@ -10,8 +10,8 @@ metadata:
 spec:
   storage:
     deviceClasses:
-      - default: true
-        fstype: xfs
+      - fstype: xfs
+        default: true
         thinPoolConfig:
           sizePercent: 90
           name: thin-pool-1
