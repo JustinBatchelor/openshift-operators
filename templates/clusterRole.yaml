@@ -7,7 +7,7 @@ rules:
   - "cert-manager.io"
   - "project.openshift.io"
   - "secrets.hashicorp.com"
-  - "lvm.topolvm.io "
+  - "lvm.topolvm.io"
   resources:
   - "clusterissuers"
   - "certificates"
