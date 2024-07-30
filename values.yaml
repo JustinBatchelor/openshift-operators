@@ -23,4 +23,6 @@ vaultSecrets:
 
 lvmstorage:
   enabled: false
-      
+
+aap:
+  enabled: false

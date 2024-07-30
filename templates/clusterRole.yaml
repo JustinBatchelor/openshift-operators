@@ -8,6 +8,7 @@ rules:
   - "project.openshift.io"
   - "secrets.hashicorp.com"
   - "lvm.topolvm.io"
+  - "automationcontroller.ansible.com"
   - ""
   resources:
   - "clusterissuers"
@@ -17,6 +18,7 @@ rules:
   - "hcpvaultsecretsapps"
   - "secrets"
   - "lvmclusters"
+  - "automationcontroller"
   verbs: 
   - "get" 
   - "list"
