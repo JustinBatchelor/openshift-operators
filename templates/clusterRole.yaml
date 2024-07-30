@@ -18,7 +18,7 @@ rules:
   - "hcpvaultsecretsapps"
   - "secrets"
   - "lvmclusters"
-  - "automationcontroller"
+  - "automationcontrollers"
   verbs: 
   - "get" 
   - "list"
