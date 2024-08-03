@@ -5,6 +5,8 @@ kind: AutomationController
 metadata:
   name: aap
   namespace: ansible-automation-platform
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
 spec:
   postgres_keepalives_count: 5
   postgres_keepalives_idle: 5
