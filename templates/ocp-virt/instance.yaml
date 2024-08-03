@@ -8,6 +8,7 @@ metadata:
     deployOVS: 'false'
     argocd.argoproj.io/sync-wave: "10"
   namespace: openshift-cnv
-spec: {}
+spec:
+  uninstallStrategy: RemoveWorkloads
 ---
 {{- end -}}
