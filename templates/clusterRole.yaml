@@ -9,6 +9,7 @@ rules:
   - "secrets.hashicorp.com"
   - "lvm.topolvm.io"
   - "automationcontroller.ansible.com"
+  - "hco.kubevirt.io"
   - ""
   resources:
   - "clusterissuers"
@@ -19,6 +20,7 @@ rules:
   - "secrets"
   - "lvmclusters"
   - "automationcontrollers"
+  - "hyperconvergeds"
   verbs: 
   - "get" 
   - "list"
