@@ -1,4 +1,4 @@
-{{- if .Values.OCPVirtualization.enabled -}}
+{{- if .Values.ocpVirtualization.enabled -}}
 ---
 apiVersion: hco.kubevirt.io/v1beta1
 kind: HyperConverged

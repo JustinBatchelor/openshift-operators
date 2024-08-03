@@ -27,5 +27,5 @@ lvmstorage:
 aap:
   enabled: false
 
-OCPVirtualization:
+ocpVirtualization:
   enabled: false
