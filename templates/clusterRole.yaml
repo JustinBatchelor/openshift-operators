@@ -21,6 +21,8 @@ rules:
   - "lvmclusters"
   - "automationcontrollers"
   - "hyperconvergeds"
+  - "deployments"
+  - "statefulsets"
   verbs: 
   - "get" 
   - "list"
