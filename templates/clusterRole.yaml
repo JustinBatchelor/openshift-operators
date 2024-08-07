@@ -27,7 +27,7 @@ rules:
   - "statefulsets"
   - "services"
   - "routes"
-  - "route"
+  - "routes/custom-host"
   verbs: 
   - "get" 
   - "list"
