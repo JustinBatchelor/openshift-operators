@@ -12,6 +12,9 @@ subjects:
 - kind: ServiceAccount
   name: openshift-gitops-argocd-application-controller
   namespace: openshift-storage
+- kind: ServiceAccount
+  name: openshift-gitops-argocd-application-controller
+  namespace: ollama
 roleRef:
   kind: ClusterRole
   name: argocd-role
