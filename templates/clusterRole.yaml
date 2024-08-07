@@ -4,6 +4,7 @@ metadata:
   name: argocd-role
 rules:
 - apiGroups: 
+  - "route.openshift.io"
   - "cert-manager.io"
   - "project.openshift.io"
   - "secrets.hashicorp.com"
