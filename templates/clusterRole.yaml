@@ -27,6 +27,7 @@ rules:
   - "statefulsets"
   - "services"
   - "routes"
+  - "route"
   verbs: 
   - "get" 
   - "list"
