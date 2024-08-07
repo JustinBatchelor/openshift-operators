@@ -24,6 +24,8 @@ rules:
   - "hyperconvergeds"
   - "deployments"
   - "statefulsets"
+  - "services"
+  - "routes"
   verbs: 
   - "get" 
   - "list"
