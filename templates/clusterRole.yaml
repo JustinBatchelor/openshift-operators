@@ -10,7 +10,7 @@ rules:
   - "secrets.hashicorp.com"
   - "lvm.topolvm.io"
   - "automationcontroller.ansible.com"
-  - "ansibleautomationplatforms.aap.ansible.com"
+  - "aap.ansible.com"
   - "hco.kubevirt.io"
   - "apps"
   - ""
@@ -29,6 +29,7 @@ rules:
   - "services"
   - "routes"
   - "routes/custom-host"
+  - "ansibleautomationplatforms"
   verbs: 
   - "get" 
   - "list"
