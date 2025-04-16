@@ -10,6 +10,7 @@ rules:
   - "secrets.hashicorp.com"
   - "lvm.topolvm.io"
   - "automationcontroller.ansible.com"
+  - "ansibleautomationplatforms.aap.ansible.com"
   - "hco.kubevirt.io"
   - "apps"
   - ""
