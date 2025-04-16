@@ -4,7 +4,7 @@ apiVersion: aap.ansible.com/v1alpha1
 kind: AnsibleAutomationPlatform
 metadata:
   name: aap
-  namespace: aap
+  namespace: ansible-automation-platform
 spec:
   route_tls_termination_mechanism: Edge
   no_log: true
