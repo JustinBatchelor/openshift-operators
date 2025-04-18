@@ -40,3 +40,4 @@ spec:
             server:  {{ .Values.nfs.server | default "pve2.batchelor.live" }}
             path: {{ .Values.nfs.path | default "/nfs/storage-class" }}
 ---
+{{- end -}}
