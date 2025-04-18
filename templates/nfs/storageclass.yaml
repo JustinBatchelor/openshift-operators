@@ -1,0 +1,13 @@
+{{- if .Values.nfs.enabled -}}
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: nfs-client
+  annotations:
+    storageclass.kubernetes.io/is-default-class: 'true'
+provisioner: {{ .Values.nfs.provisioner.name | default "nfs-storage" }} # or choose another name, must match deployment's env PROVISIONER_NAME'
+parameters:
+  archiveOnDelete: "false"
+---
+{{- end -}}

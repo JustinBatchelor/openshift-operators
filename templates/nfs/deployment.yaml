@@ -1,0 +1,42 @@
+{{- if .Values.nfs.enabled -}}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nfs-client-provisioner
+  labels:
+    app: nfs-client-provisioner
+  # replace with namespace where provisioner is deployed
+  namespace: {{ .Values.nfs.namespace | default "nfs" }}
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: nfs-client-provisioner
+  template:
+    metadata:
+      labels:
+        app: nfs-client-provisioner
+    spec:
+      serviceAccountName: {{ .Values.nfs.provisioner.service_account | default "nfs-client-provisioner" }}
+      containers:
+        - name: nfs-client-provisioner
+          image: registry.k8s.io/sig-storage/nfs-subdir-external-provisioner:v4.0.2
+          volumeMounts:
+            - name: nfs-client-root
+              mountPath: /persistentvolumes
+          env:
+            - name: PROVISIONER_NAME
+              value: {{ .Values.nfs.provisioner.name | default "nfs-storage" }}
+            - name: NFS_SERVER
+              value: {{ .Values.nfs.server | default "pve2.batchelor.live" }}
+            - name: NFS_PATH
+              value: {{ .Values.nfs.path | default "/nfs/storage-class" }}
+      volumes:
+        - name: nfs-client-root
+          nfs:
+            server:  {{ .Values.nfs.server | default "pve2.batchelor.live" }}
+            path: {{ .Values.nfs.path | default "/nfs/storage-class" }}
+---

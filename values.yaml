@@ -29,3 +29,14 @@ aap:
 
 ocpVirtualization:
   enabled: false
+
+nfs:
+  enabled: false
+
+  namespace: '' #nfs
+  server: '' #pve2.batchelor.live
+  path: '' #/nfs/storage-class
+
+  provisioner:
+    name: '' #nfs-storage
+    service_account: '' #nfs-client-provisioner
