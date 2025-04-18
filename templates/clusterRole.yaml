@@ -30,6 +30,7 @@ rules:
   - "routes"
   - "routes/custom-host"
   - "ansibleautomationplatforms"
+  - "serviceaccounts"
   verbs: 
   - "get" 
   - "list"
