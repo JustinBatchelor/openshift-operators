@@ -1,0 +1,42 @@
+{{- if .Values.vaultSecrets.enabled -}}
+---
+kind: Secret
+apiVersion: v1
+metadata:
+  name: {{ .Values.vaultSecrets.servicePrincipal.name | default "hashicorp-service-principal" }}
+  namespace: cert-manager
+data:
+  clientID: {{ .Values.vaultSecrets.servicePrincipal.clientID | default "" }}
+  clientSecret: {{ .Values.vaultSecrets.servicePrincipal.clientSecret | default "" }}
+---
+apiVersion: secrets.hashicorp.com/v1beta1
+kind: HCPAuth
+metadata:
+  name: hcp-authentication
+  namespace: cert-manager
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  method: servicePrincipal
+  servicePrincipal:
+    secretRef: {{ .Values.vaultSecrets.servicePrincipal.name | default "hashicorp-service-principal" }}
+  organizationID: {{ .Values.vaultSecrets.organizationID | default "" }}
+  projectID: {{ .Values.vaultSecrets.projectID | default "" }}
+---
+kind: HCPVaultSecretsApp
+apiVersion: secrets.hashicorp.com/v1beta1
+metadata:
+  namespace: cert-manager
+  name: hcp-vaultsecrets
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  appName: {{ .Values.vaultSecrets.app.name | default "homelab" }}
+  destination:
+    create: true
+    name: hcp-{{ .Values.vaultSecrets.app.name | default "homelab" }}-secrets
+    overwrite: true
+  hcpAuthRef: hcp-authentication
+  refreshAfter: 24h
+---
+{{- end -}}

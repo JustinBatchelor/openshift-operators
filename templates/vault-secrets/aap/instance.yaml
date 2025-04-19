@@ -4,7 +4,7 @@ kind: Secret
 apiVersion: v1
 metadata:
   name: {{ .Values.vaultSecrets.servicePrincipal.name | default "hashicorp-service-principal" }}
-  namespace: cert-manager
+  namespace: ansible-automation-platform
 data:
   clientID: {{ .Values.vaultSecrets.servicePrincipal.clientID | default "" }}
   clientSecret: {{ .Values.vaultSecrets.servicePrincipal.clientSecret | default "" }}
@@ -13,7 +13,7 @@ apiVersion: secrets.hashicorp.com/v1beta1
 kind: HCPAuth
 metadata:
   name: hcp-authentication
-  namespace: cert-manager
+  namespace: ansible-automation-platform
   annotations:
     argocd.argoproj.io/sync-wave: "1"
 spec:
@@ -26,17 +26,17 @@ spec:
 kind: HCPVaultSecretsApp
 apiVersion: secrets.hashicorp.com/v1beta1
 metadata:
-  namespace: cert-manager
+  namespace: ansible-automation-platform
   name: hcp-vaultsecrets
   annotations:
     argocd.argoproj.io/sync-wave: "2"
 spec:
-  appName: {{ .Values.vaultSecrets.app.name | default "homelab" }}
+  appName: aap
   destination:
     create: true
-    name: hcp-{{ .Values.vaultSecrets.app.name | default "homelab" }}-secrets
+    name: hcp-aap-secrets
     overwrite: true
   hcpAuthRef: hcp-authentication
-  refreshAfter: {{ .Values.vaultSecrets.app.refreshAfter | default "5m" }}
+  refreshAfter: 24h
 ---
 {{- end -}}
