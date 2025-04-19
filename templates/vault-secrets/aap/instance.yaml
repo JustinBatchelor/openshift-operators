@@ -34,7 +34,7 @@ spec:
   appName: aap
   destination:
     create: true
-    name: hcp-aap-secrets
+    name: aap-admin-password
     overwrite: true
     transformation:
       excludeRaw: true
