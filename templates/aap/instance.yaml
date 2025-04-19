@@ -8,7 +8,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "5"
 spec:
-  admin_password_secret: hcp-aap-secrets
+  admin_password_secret: hcp-aap-secrets.admin_password
   route_tls_termination_mechanism: Edge
   no_log: true
   redis_mode: standalone
@@ -17,6 +17,5 @@ spec:
     replicas: 1
   database:
     postgres_data_volume_init: false
-  
 ---
 {{- end -}}
