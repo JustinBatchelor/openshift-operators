@@ -36,6 +36,8 @@ spec:
     create: true
     name: hcp-aap-secrets
     overwrite: true
+    transformation:
+      excludeRaw: true
   hcpAuthRef: hcp-authentication
   refreshAfter: 24h
 ---

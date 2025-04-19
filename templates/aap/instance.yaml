@@ -8,7 +8,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "5"
 spec:
-  admin_password_secret: hcp-aap-secrets.admin_password
+  admin_password_secret: hcp-aap-secrets
   route_tls_termination_mechanism: Edge
   no_log: true
   redis_mode: standalone
