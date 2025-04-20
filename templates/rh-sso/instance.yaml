@@ -12,16 +12,17 @@ spec:
   externalAccess:
     enabled: true
   keycloakDeploymentSpec:
-    env:
-      - name: SSO_ADMIN_USERNAME
-        valueFrom:
-          secretKeyRef:
-            key: ADMIN_USERNAME
-            name: sso-admin-credential
-      - name: SSO_ADMIN_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            key: ADMIN_PASSWORD
-            name: sso-admin-credential
+    experimental:
+      env:
+        - name: SSO_ADMIN_USERNAME
+          valueFrom:
+            secretKeyRef:
+              key: ADMIN_USERNAME
+              name: sso-admin-credential
+        - name: SSO_ADMIN_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: ADMIN_PASSWORD
+              name: sso-admin-credential
 ---
 {{- end -}}
