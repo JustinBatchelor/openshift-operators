@@ -33,6 +33,7 @@ rules:
   - "ansibleautomationplatforms"
   - "serviceaccounts"
   - "keycloaks"
+  - "keycloaksusers"
   verbs: 
   - "get" 
   - "list"
