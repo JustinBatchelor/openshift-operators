@@ -40,3 +40,6 @@ nfs:
   provisioner:
     name: '' #nfs-storage
     service_account: '' #nfs-client-provisioner
+
+sso:
+  enabled: false

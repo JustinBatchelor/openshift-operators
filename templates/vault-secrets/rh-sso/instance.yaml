@@ -1,0 +1,44 @@
+{{- if .Values.vaultSecrets.enabled -}}
+---
+kind: Secret
+apiVersion: v1
+metadata:
+  name: {{ .Values.vaultSecrets.servicePrincipal.name | default "hashicorp-service-principal" }}
+  namespace: sso
+data:
+  clientID: {{ .Values.vaultSecrets.servicePrincipal.clientID | default "" }}
+  clientSecret: {{ .Values.vaultSecrets.servicePrincipal.clientSecret | default "" }}
+---
+apiVersion: secrets.hashicorp.com/v1beta1
+kind: HCPAuth
+metadata:
+  name: hcp-authentication
+  namespace: sso
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  method: servicePrincipal
+  servicePrincipal:
+    secretRef: {{ .Values.vaultSecrets.servicePrincipal.name | default "hashicorp-service-principal" }}
+  organizationID: {{ .Values.vaultSecrets.organizationID | default "" }}
+  projectID: {{ .Values.vaultSecrets.projectID | default "" }}
+---
+kind: HCPVaultSecretsApp
+apiVersion: secrets.hashicorp.com/v1beta1
+metadata:
+  namespace: sso
+  name: hcp-vaultsecrets
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  appName: sso
+  destination:
+    create: true
+    name: sso-admin-credential
+    overwrite: true
+    transformation:
+      excludeRaw: true
+  hcpAuthRef: hcp-authentication
+  refreshAfter: 24h
+---
+{{- end -}}
