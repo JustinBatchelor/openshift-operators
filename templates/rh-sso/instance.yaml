@@ -7,6 +7,8 @@ metadata:
   labels:
     app: sso
   namespace: sso
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
 spec:
   instances: 1
   externalAccess:
@@ -24,5 +26,29 @@ spec:
             secretKeyRef:
               key: admin_password
               name: sso-admin-credential
+---
+kind: KeycloakUser
+apiVersion: keycloak.org/v1alpha1
+metadata:
+  name: justin-realm-user
+  labels:
+    app: sso
+  namespace: sso
+  annotations:
+    argocd.argoproj.io/sync-wave: "10"
+spec:
+  user:
+    username: jbatchel
+    firstName: Justin
+    lastName: Batchelor
+    email: justinrossbatchelor@gmail.com
+    enabled: true
+    emailVerified: true
+    credentials:
+      temporary: false
+      value: password123
+  realmSelector:
+    matchLabels:
+      app: sso
 ---
 {{- end -}}
