@@ -17,12 +17,12 @@ spec:
         - name: SSO_ADMIN_USERNAME
           valueFrom:
             secretKeyRef:
-              key: ADMIN_USERNAME
+              key: admin_username
               name: sso-admin-credential
         - name: SSO_ADMIN_PASSWORD
           valueFrom:
             secretKeyRef:
-              key: ADMIN_PASSWORD
+              key: admin_password
               name: sso-admin-credential
 ---
 {{- end -}}
