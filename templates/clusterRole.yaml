@@ -12,6 +12,7 @@ rules:
   - "automationcontroller.ansible.com"
   - "aap.ansible.com"
   - "hco.kubevirt.io"
+  - "keycloak.org"
   - "apps"
   - ""
   resources:
@@ -31,6 +32,7 @@ rules:
   - "routes/custom-host"
   - "ansibleautomationplatforms"
   - "serviceaccounts"
+  - "keycloaks"
   verbs: 
   - "get" 
   - "list"
