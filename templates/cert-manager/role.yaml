@@ -12,8 +12,6 @@ rules:
     - ""
   resources: 
     - "serviceaccounts/token"
-  resourceNames:
-    - "cert-manager"
   verbs: 
     - "create"
 ---
