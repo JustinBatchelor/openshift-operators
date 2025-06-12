@@ -1,0 +1,19 @@
+{{- if .Values.certManager.enabled -}}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: cert-manager-tokenrolebinding
+  namespace: cert-manager
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
+subjects:
+- kind: ServiceAccount
+  name: cert-manager-operator-controller-manager
+  namespace: cert-manager-operator
+roleRef:
+  kind: Role
+  name: cert-manager-tokenrole
+  apiGroup: rbac.authorization.k8s.io
+---
+{{- end -}}

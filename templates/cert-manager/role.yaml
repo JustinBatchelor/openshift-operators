@@ -1,0 +1,20 @@
+{{- if .Values.certManager.enabled -}}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: cert-manager-tokenrole
+  namespace: cert-manager
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
+rules:
+- apiGroups: 
+    - ""
+  resources: 
+    - "serviceaccounts/token"
+  resourceNames:
+    - "cert-manager"
+  verbs: 
+    - "create"
+---
+{{- end -}}
