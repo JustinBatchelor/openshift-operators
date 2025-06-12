@@ -30,7 +30,6 @@ rules:
   - "services"
   - "routes"
   - "routes/custom-host"
-  - "serviceaccounts/token"
   - "ansibleautomationplatforms"
   - "serviceaccounts"
   - "keycloaks"
